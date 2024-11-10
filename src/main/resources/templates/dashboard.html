@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+<header>
+    <h1>Welcome to your Dashboard</h1>
+</header>
+<div class="container">
+    <p>Hello, <span th:text="${name}"></span>! You are now logged in.</p>
+
+    <h2>Your Investments</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Asset Name</th>
+            <th>Asset Type</th>
+            <th>Quantity</th>
+            <th>Purchase Price</th>
+            <th>Purchase Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="investment : ${investments}">
+            <td th:text="${investment.assetName}"></td>
+            <td th:text="${investment.assetType}"></td>
+            <td th:text="${investment.quantity}"></td>
+            <td th:text="${investment.purchasePrice}"></td>
+            <td th:text="${investment.purchaseDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/logout" class="logout">Logout</a>
+</div>
+</body>
+</html>
